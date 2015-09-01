@@ -1,0 +1,105 @@
+\documentclass{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{Madrid}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{beaver} % or try albatross, beaver, crane, ...
+  \usefonttheme{serif}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+} 
+
+\usepackage[english]{babel}
+\usepackage{kotex}
+%\usepackage[utf8x]{inputenc}
+
+\title[3D 그래픽스 프로그래밍]{3D 그래픽스 프로그래밍 강의 노트 01}
+\author{강영민}
+\institute{동명대학교}
+\date{2015년 2학기}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Uncomment these lines for an automatically generated outline.
+%\begin{frame}{Outline}
+%  \tableofcontents
+%\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{강의개요}
+\begin{itemize}
+  \item 교재명: {\small \it 게임프로그래머를 위한} 수학과 OpenGL 프로그래밍
+  \item 저자 - 강영민
+  \item 출판사 -  도서출판 GS인터비전.
+  \item 강의방식
+    \begin{itemize}
+      \item 프로그래밍 실습 중심 
+      \item 과제 10회, 수시고사 2회
+    \end{itemize} 
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{block}{강의 목표}
+OpenGL을 이용하여 3차원 그래픽스의 기본 개념과 이론을 이해하고 이를 구현하는 방법을 습득한다.
+\end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{무엇을 다루나}
+
+% Commands to include a figure:
+%\begin{figure}
+%\includegraphics[width=\textwidth]{your-figure's-file-name}
+%\caption{\label{fig:your-figure}Caption goes here.}
+%\end{figure}
+
+\begin{table}
+\centering
+\begin{tabular}{l|c}  \hline
+개론 & 컴퓨터 그래픽스에 대한 소개 \\\hline  \hline
+OpenGL & OpenGL 소개 \\ \hline
+변환 & 변환의 개념과 OpenGL에서의 구현 습득 \\ \hline
+카메라 & 합성 카메라 모델의 이해와 적용\\ \hline
+조명과 재질 & 렌더링을 위한 조명과 재질 모델 이해와 구현 \\ \hline
+텍스처 & 기학적 복잡도를 높이지 않고 렌더링 품질 향상 \\ \hline
+블렌딩 & 프래그먼트의 개념 이해 / 색상 혼합 효과 \\ \hline
+셰이더 & 프로그램 가능한 그래픽 파이프라인의 이해와 활용 \\ \hline
+\end{tabular}
+%\caption{\label{tab:widgets}게임수학에서 다룰 내용}
+\end{table}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{마음의 준비}
+
+\begin{itemize}
+\item 프로그래밍에 겁 먹지 말자.
+\item 거의 매주 과제가 나올 것이다.
+\item 출석인정에 대하여
+	\begin{itemize}
+		\item 사정이 있으면 결석을 하라. 세상에는 수업보다 중요한 일이 많다.
+		\item 선택의 책임은 본인 것이다. 출석 인정은 없다. 세상은 그런 곳이다.
+		\item 세상에 안 되는 일은 없다. 필요한 경우 진지하게 상담요청을 하라.
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\end{document}
+
+
