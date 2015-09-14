@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E2B05782-07E5-4FAF-BA22-E7A48026C612</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AD58FA9CD1B4BB5FF58AA34345B563BC18A5F7E1</key>
+		<string>https://github.com/dknife/201502_Graphics.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ExCodes/genetic/genetic.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AD58FA9CD1B4BB5FF58AA34345B563BC18A5F7E1</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/dknife/201502_Graphics.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AD58FA9CD1B4BB5FF58AA34345B563BC18A5F7E1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AD58FA9CD1B4BB5FF58AA34345B563BC18A5F7E1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>201502_Graphics</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.3.4)  8 SEP 2015 22:23
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.3.4)  9 SEP 2015 20:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -710,8 +710,8 @@ emeinfolines.sty
 Package: beamerouterthemeinfolines 2012/10/16  (rcs-revision 51a8c72084af)
 ))
 (/usr/local/texlive/2013/texmf-dist/tex/latex/beamer/themes/color/beamercolorth
-emebeaver.sty
-Package: beamercolorthemebeaver 2010/06/17  (rcs-revision d02a7cf4d8ae)
+emeseahorse.sty
+Package: beamercolorthemeseahorse 2010/06/17  (rcs-revision d02a7cf4d8ae)
 )
 (/usr/local/texlive/2013/texmf-dist/tex/latex/beamer/themes/font/beamerfontthem
 eserif.sty
@@ -1626,10 +1626,10 @@ LaTeX Font Warning: Size substitutions with differences
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 505.
  ) 
 Here is how much of TeX's memory you used:
- 20780 strings out of 493315
- 382706 string characters out of 6137905
- 465142 words of memory out of 5000000
- 23574 multiletter control sequences out of 15000+600000
+ 20775 strings out of 493315
+ 382606 string characters out of 6137905
+ 465099 words of memory out of 5000000
+ 23569 multiletter control sequences out of 15000+600000
  45054 words of font info for 161 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  49i,16n,57p,426b,622s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1682,7 +1682,7 @@ live/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd4.pfb></usr/local/t
 exlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd5.pfb></usr/local
 /texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd6.pfb></usr/loc
 al/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd7.pfb>
-Output written on Lec2_GraphicsIntro.pdf (26 pages, 4908095 bytes).
+Output written on Lec2_GraphicsIntro.pdf (26 pages, 4907435 bytes).
 PDF statistics:
  471 PDF objects out of 1000 (max. 8388607)
  305 compressed objects within 4 object streams
