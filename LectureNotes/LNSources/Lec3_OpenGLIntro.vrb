@@ -1,12 +1,6 @@
-\frametitle{카메라를 설정하는 기본적인 프로그램}
+\frametitle{깊이 버퍼와 이중 버퍼 사용 결과}
 
-    \lstset{language=C++,frame=none,escapechar=^}%
-    \foreach \n in {1,26,...,50} {%
-       \only<+>{%
-            \edef\m{\the\numexpr\n+24\relax}%
-            \edef\thesubtitle{{Lines \n--\m\ / 50}}%
-            \expandafter\framesubtitle\thesubtitle
-            \lstinputlisting[firstline=\n,lastline=\m]{./Codes/L03_simpleCamera.tex}%
-       }%
-    }
+\begin{figure}
+    \includegraphics[height=7cm]{OGL_opengl/ZBuff.png}
+\end{figure}
 

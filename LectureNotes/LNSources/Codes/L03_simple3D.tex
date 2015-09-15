@@ -1,0 +1,34 @@
+void drawScene() {
+  // drawing code
+  glBegin(GL_QUADS);
+  // ^{\it 천정}^
+  glColor3f(1.0, 1.0, 0.0);
+  glVertex3f(-0.5, 0.5, -0.5);
+  glVertex3f( 0.5, 0.5, -0.5);
+  glVertex3f( 0.5, 0.5,  0.5);
+  glVertex3f(-0.5, 0.5,  0.5);
+  // ^{\it 바닥}^
+  glColor3f(0.0,1.0,1.0);
+  glVertex3f(-0.5,-0.5, -0.5);
+  glVertex3f( 0.5,-0.5, -0.5);
+  glVertex3f( 0.5,-0.5,  0.5);
+  glVertex3f(-0.5,-0.5,  0.5);
+  // ^{\it 왼쪽 벽}^
+  glColor3f(0.0,1.0,0.0);
+  glVertex3f(-0.5, 0.5, -0.5);
+  glVertex3f(-0.5, 0.5,  0.5);
+  glVertex3f(-0.5,-0.5,  0.5);
+  glVertex3f(-0.5,-0.5, -0.5);
+  // ^{\it 오른쪽 벽}^
+  glColor3f(1.0,1.0,1.0);
+  glVertex3f( 0.5, 0.5, -0.5);
+  glVertex3f( 0.5, 0.5,  0.5);
+  glVertex3f( 0.5,-0.5,  0.5);
+  glVertex3f( 0.5,-0.5, -0.5);
+  glEnd();
+}
+
+void draw() {
+  drawScene();
+  drawAxes(); //^{\it drawAxes 함수는 코드 \ref{code:OGL_opengl:SceneWithCam}에서 사용한 것을 그대로 쓴다.}^
+}

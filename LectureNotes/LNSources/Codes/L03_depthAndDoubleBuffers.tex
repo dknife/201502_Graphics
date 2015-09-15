@@ -1,0 +1,33 @@
+^{\sf [[헤더 파일 포함하기]]}^
+
+void init(int argc, char **argv) {
+    // ^{\it 윈도우 생성, 버퍼 설정}^
+    glutInit(&argc, argv);
+    // ^{\it 이중 버퍼링, RGBA 색상 버퍼와 함께, 깊이 버퍼를 준비하도록 한다.}^
+    glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA|GLUT_DEPTH);
+    glutInitWindowPosition(0,0);
+    glutInitWindowSize(512,512);
+    glutCreateWindow("DEPTH BUFFER");
+    glClearColor(0.7, 0.7, 0.7, 1.0);
+    // ^{\it 깊이 버퍼 검사를 활성화한다.}^
+    glEnable(GL_DEPTH_TEST);
+    // ^{\it 카메라 투영 특성 설정 (glPerspective 사용). 이때는 GL\_PROJECTION 행렬모드여야 한다.}^
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(60, 1.0, 0.1, 100.0);
+}
+void drawScene() {     ^{\sf [[코드 \ref{code:OGL_opengl:3DObjects}와 동일]]}^  }
+void drawAxes() {     ^{\sf [[코드 \ref{code:OGL_opengl:3DObjects}와 동일]]}^ }
+void draw() { ^{\sf [[코드 \ref{code:OGL_opengl:3DObjects}와 동일]]}^  }
+void display() {
+    static float t=0.0;
+    // ^{\it 카메라의 위치와 방향을 설정한다. 이때는 GL\_MODELVIEW 행렬 모드여야 한다.}^
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    gluLookAt( 2.0*sin(t), 1, 2.0*cos(t), 0, 0, 0,  0, 1, 0);
+    t+=0.001;
+    // ^{\it 컬러 버퍼 뿐만 아니라 깊이 버퍼도 매 프레임마다 지운다.}^
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    draw();
+    glutSwapBuffers();
+};
