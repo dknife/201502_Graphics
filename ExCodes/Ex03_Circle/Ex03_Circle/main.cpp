@@ -9,12 +9,13 @@ void myDisplay() {
 	float c, s, angle;
 	glBegin(GL_POLYGON);
 		int nV = 100;
+		float r = 0.5;
 		for(int i=0; i<nV; i++) {
 			angle = i*2.0*3.141592 / float(nV);
 			c = cos(angle); 
 			s = sin(angle);
 			glColor3f(c,s,c*s);
-			glVertex3f(c, s, 0.0);
+			glVertex3f(r*c + 0.5, r*s + 0.5, 0.0);
 		}
 	glEnd();
     glFlush();
