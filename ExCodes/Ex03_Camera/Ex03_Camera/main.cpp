@@ -6,15 +6,14 @@
 
 void drawCircle(float x, float y, float r) {
 	float c, s, angle;
-	glColor3f(1,1,0);
-	glBegin(GL_LINES);
+	glBegin(GL_POLYGON);
 		int nV = 100;
 		for(int i=0; i<nV; i++) {
 			angle = i*2.0*3.141592 / float(nV);
 			c = cos(angle); 
 			s = sin(angle);
-			
-			glVertex3f(r*c+x, r*s+y, 0);
+			glColor3f(c,s,c*s);
+			glVertex3f(r*c+x, r*s+y, 0.0);
 		}
 	glEnd();
 }
@@ -40,16 +39,23 @@ void drawTriangle(float x1, float y1, float z1,
 
 void myDisplay() {
     glClear(GL_COLOR_BUFFER_BIT);
-
-	glMatrixMode(GL_PROJECTION);
-	glOrtho(-2,2, -2,2, -1,1);
 	
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	//camera lens
+	gluPerspective(60, 1.0, 0.01, 10.0);
+
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+	static float angle = 0;
+	angle+=0.001;
+	float x = 3*cos(angle);
+	float z = 3*sin(angle);
+	gluLookAt(x, 0, z, 0,0,0,  0, 1, 0);
 
 	drawCircle(-0.5,0.5, 0.3);
-	drawTriangle(-1,-0.5,0, 0,-0.5,0, -0.5,0.5,0);
-	drawTriangle(-0.5,-0.5,0, 0.5,-0.5,0, 0,0.5,0);
+	drawTriangle(-1,-0.5,-0.5, 0,-0.5,-0.5, -0.5,0.5, -0.5);
+	drawTriangle(-0.5,-0.5,0, 0.5,-0.5,0, 0,0.5, 0);
 	
 	drawCircle(0.5,0.5, 0.4);
 	drawRect(0.4,0.5, 0.2,1);
@@ -64,8 +70,10 @@ int main(int argc, char **argv) {
     glutInitWindowSize(512, 512);
     glutCreateWindow("A New GL Window");
 
-    glClearColor(0.5, 0.5, 0.5, 1.0);
+    glClearColor(1.0, 0.0, 0.0, 1.0);
     glutDisplayFunc(myDisplay);
+	glutIdleFunc(myDisplay);
+
     glutMainLoop();
 
     return 0;
