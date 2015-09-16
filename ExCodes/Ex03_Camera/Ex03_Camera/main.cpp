@@ -1,8 +1,12 @@
-#include <Windows.h>
-#include <gl/GL.h>
-#include <gl/glut.h>
+//#include <Windows.h>
+//#include <gl/GL.h>
+//#include <gl/glut.h>
+
+#include <gl\freeglut.h>
 #include <stdio.h>
 #include <math.h>
+
+#pragma comment(lib, "freeglut.lib")
 
 void drawCircle(float x, float y, float r) {
 	float c, s, angle;
