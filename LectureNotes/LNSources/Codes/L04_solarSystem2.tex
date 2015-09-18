@@ -1,0 +1,45 @@
+    static float t=10;     t+=1.0;
+    ^{\sf [[카레라 설정, 버퍼 지우기, 중심 축 그리기 등을 수행]]}^
+    
+    draw(1, 1.0, 0.5, 0.0); //^{\it 태양}^
+    drawCircle(3.0); // ^{\it \color{red} 수성 궤도 그리기}^
+    drawCircle(5.0); // ^{\it \color{red} 금성 궤도 그리기}^
+    drawCircle(7.0); // ^{\it \color{red} 지구 궤도 그리기}^
+    drawCircle(10.0);// ^{\it \color{red} 화성 궤도 그리기}^
+    drawCircle(14.0);// ^{\it \color{red} 목성 궤도 그리기}^
+    
+    glPushMatrix();
+      ^{\sf [[수성 변환과 그리기]]}^
+    glPopMatrix(); // ^{\it 수성 영향권 끝}^
+    
+    glPushMatrix();
+      ^{\sf [[금성 변환과 그리기]]}^
+    glPopMatrix(); // ^{\it 금성 영향권 끝}^
+    
+    glPushMatrix();
+      ^{\sf [[지구 변환과 그리기]]}^
+      drawCircle(0.5); // ^{\it \color{red} 달의 궤도 그리기}^
+      glPushMatrix();
+      ^{\sf [[달의 변환과 그리기]]}^
+      glPopMatrix(); // ^{\it 달의 영향권 끝}^
+    glPopMatrix(); // ^{\it 지구의 영향권 끝}^
+    
+    glPushMatrix();
+      ^{\sf [[화성 변환과 그리기]]}^
+    glPopMatrix(); // ^{\it 화성 영향권 끝}^
+    
+    glPushMatrix(); // ^{\it 목성 영향권의 시작}^
+      ^{\sf [[목성 변환과 그리기]]}^
+      drawCircle(0.7); // ^{\it \color{red} 목성 위성 1의 궤도 그리기}^
+      drawCircle(0.9); // ^{\it \color{red} 목성 위성 2의 궤도 그리기}^
+      drawCircle(1.1); // ^{\it \color{red} 목성 위성 3의 궤도 그리기}^
+      glPushMatrix();
+        ^{\sf [[목성 위성 1의 변환과 그리기]]}^
+      glPopMatrix(); // ^{\it 목성 위성 1번의 영향권 끝}^
+      glPushMatrix();
+        ^{\sf [[목성 위성 2의 변환과 그리기]]}^
+      glPopMatrix(); // ^{\it 목성 위성 2번의 영향권 끝}^
+      glPushMatrix();
+        ^{\sf [[목성 위성 3의 변환과 그리기]]}^
+      glPopMatrix(); //  ^{\it 목성 위성 2번의 영향권 끝}^
+    glPopMatrix(); //  // ^{\it 목성의 영향권 끝}^

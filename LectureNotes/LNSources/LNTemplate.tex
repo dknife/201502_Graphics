@@ -1,0 +1,82 @@
+\documentclass{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{Madrid}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{seahorse} % or try albatross, beaver, crane, ...
+  \usefonttheme{serif}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+} 
+
+\usepackage[english]{babel}
+\usepackage{kotex}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{pgffor}
+\input{algorithmbisEnv.tex}
+
+\title[3D 그래픽스 프로그래밍]{그래픽스 강의노트 03 - OpenGL 소개}
+\author{강영민}
+\institute{동명대학교}
+\date{2015년 2학기}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Uncomment these lines for an automatically generated outline.
+%\begin{frame}{Outline}
+%  \tableofcontents
+%\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}[fragile]{깊이 버퍼와 이중 버퍼 사용 예제}
+%   \lstset{language=C++,frame=none,escapechar=^}%
+%    \foreach \n in {1,26,...,50} {%
+%       \only<+>{%
+%            \edef\m{\the\numexpr\n+24\relax}%
+%            \edef\thesubtitle{{Lines \n--\m\ / 50}}%
+%            \expandafter\framesubtitle\thesubtitle
+%            \lstinputlisting[firstline=\n,lastline=\m]{./Codes/L03_depthAndDoubleBuffers.tex}%
+%       }%
+%    }
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}[fragile]{간단한 OpenGL 프로그램 테스트}
+%\lstset{language=C++,escapechar=^} 
+%\begin{lstlisting}
+%#include "headers.h"
+%
+%void myDisplay() {
+%   glClear(GL_COLOR_BUFFER_BIT);
+%    glFlush();    
+%}
+%\end{lstlisting}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{OpenGL을 사용하기 위한 준비}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+
+
+
