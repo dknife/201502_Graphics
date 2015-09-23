@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1A4F1FF3-C13A-4F97-9096-93CFAAABC3F5}</ProjectGuid>
+    <ProjectGuid>{C8663613-3A5F-460F-940F-B3F48D4F4385}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Ex04_SceneWithTransforms</RootNamespace>
+    <RootNamespace>Ex04_RotationBasic</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

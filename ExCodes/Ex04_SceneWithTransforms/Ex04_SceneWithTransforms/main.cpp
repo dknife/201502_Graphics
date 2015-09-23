@@ -21,7 +21,7 @@ void drawAxes() {
 void drawCircle() {
 	float c, s, angle;
 	glColor3f(1,1,0);
-	glBegin(GL_LINE_LOOP);
+	glBegin(GL_POLYGON);
 		int nV = 100;
 		for(int i=0; i<nV; i++) {
 			angle = i*2.0*3.141592 / float(nV);
@@ -32,7 +32,7 @@ void drawCircle() {
 	glEnd();
 }
 void drawRect() {
-	glBegin(GL_LINE_LOOP);
+	glBegin(GL_POLYGON);
 		glVertex3f(-0.5, 0.5, 0.0);
 		glVertex3f(-0.5,-0.5, 0.0);
 		glVertex3f( 0.5,-0.5, 0.0);
@@ -40,7 +40,7 @@ void drawRect() {
 	glEnd();
 }
 void drawTriangle() {
-	glBegin(GL_LINE_LOOP);
+	glBegin(GL_POLYGON);
 		glVertex3f(-0.5, -sqrt(0.75)/2, 0.0);
 		glVertex3f( 0.5, -sqrt(0.75)/2, 0.0);
 		glVertex3f( 0.0, sqrt(0.75)/2, 0.0);
@@ -59,24 +59,36 @@ void myDisplay() {
 
 	static float angle = 0.0;
 	angle+=0.01;
-	gluLookAt(2.0*sin(angle), 0.5 ,2.0*cos(angle), 0,0,0, 0,1,0);
+	gluLookAt(0.0, 0.5 ,5.0, 0,0,0, 0,1,0);
 
 	drawAxes();
 
-	glTranslatef(1,0,0);
-	glScalef(0.5, 0.5, 0.5);
+	// 현재 상태를 저장하자!
+	glPushMatrix();
+	glTranslatef(-1,2,0);   // T
+	glScalef(0.25, 0.25, 1); // S
 	drawCircle();
-	glScalef(2.0, 2.0, 2.0);
+	glPopMatrix();
 
 	glColor3f(0.0, 1.0, 0.0);
-
-	glTranslatef(-1, 0, 0);
-
+	glPushMatrix(); // !!!!!!
+	glTranslatef(-1.0, 0.4,-0.1);
+	glScalef(3,3,3);
 	drawTriangle();
+	glPopMatrix(); // !!!!!! 상태를 불러와라.
+
 	glColor3f(0.0, 0.0, 1.0);
+	glPushMatrix(); // !#@$!@#$
+	glTranslatef( 1.0, 0.4, -0.3);
+	glScalef(3,3,3);
 	drawTriangle();
+	glPopMatrix(); // !@#$!@#$ 상태를 불러와라.
 	
+	glTranslatef(1.0, 2.0, 1.0);
 	drawCircle();
+	glColor3f(1.0, 0.0, 0.0);
+	glScalef(0.25, 3.0, 1.0);
+	glTranslatef(0.0, -0.5, 0.0);
 	drawRect();
     
 	//glFlush();
