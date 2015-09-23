@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <math.h>
 
-void drawCircle(float x, float y, float r) {
+void drawCircle() {
 	float c, s, angle;
 	glColor3f(1,1,0);
 	glBegin(GL_LINES);
@@ -12,28 +12,24 @@ void drawCircle(float x, float y, float r) {
 		for(int i=0; i<nV; i++) {
 			angle = i*2.0*3.141592 / float(nV);
 			c = cos(angle); 
-			s = sin(angle);
-			
-			glVertex3f(r*c+x, r*s+y, 0);
+			s = sin(angle);			
+			glVertex3f(c, s, 0);
 		}
 	glEnd();
 }
-void drawRect(float x, float y, float w, float h) {
-	glColor3f(1.0, 1.0, 0.0);
+void drawRect() {
 	glBegin(GL_QUADS);
-		glVertex3f(x,y,0);
-		glVertex3f(x,y-h,0);
-		glVertex3f(x+w,y-h,0);
-		glVertex3f(x+w,y,0);
+		glVertex3f(-0.5, 0.5, 0.0);
+		glVertex3f(-0.5,-0.5, 0.0);
+		glVertex3f( 0.5,-0.5, 0.0);
+		glVertex3f( 0.5, 0.5, 0.0);		
 	glEnd();
 }
-void drawTriangle(float x1, float y1, float z1,
-				float x2, float y2, float z2,
-				float x3, float y3, float z3) {
+void drawTriangle() {
 	glBegin(GL_TRIANGLES);
-		glVertex3f(x1,y1,z1);
-		glVertex3f(x2,y2,z2);
-		glVertex3f(x3,y3,z3);
+		glVertex3f(-0.5, 0.0, 0.0);
+		glVertex3f( 0.5, 0.0, 0.0);
+		glVertex3f( 0.0, sqrt(0.75), 0.0);
 	glEnd();
 }
 
@@ -51,14 +47,14 @@ void myDisplay() {
 	angle+=0.01;
 	gluLookAt(2.0*sin(angle),0,2.0*cos(angle), 0,0,0, 0,1,0);
 
-	drawCircle(-0.5,0.5, 0.3);
+	drawCircle();
 	glColor3f(0.0, 1.0, 0.0);
-	drawTriangle(-1,-0.5,0.5, 0,-0.5,0.5, -0.5,0.5,0.5);
+	drawTriangle();
 	glColor3f(0.0, 0.0, 1.0);
-	drawTriangle(-0.5,-0.5,-0.5, 0.5,-0.5,-0.5, 0,0.5,-0.5);
+	drawTriangle();
 	
-	drawCircle(0.5,0.5, 0.4);
-	drawRect(0.4,0.5, 0.2,1);
+	drawCircle();
+	drawRect();
     
 	//glFlush();
 	glutSwapBuffers();
@@ -69,7 +65,7 @@ int main(int argc, char **argv) {
     glutInitDisplayMode(GLUT_DOUBLE|GLUT_DEPTH|GLUT_RGBA);
     glutInitWindowPosition(0,0);
     glutInitWindowSize(512, 512);
-    glutCreateWindow("A New GL Window");
+    glutCreateWindow("Transform");
 
 	glEnable(GL_DEPTH_TEST);
 
