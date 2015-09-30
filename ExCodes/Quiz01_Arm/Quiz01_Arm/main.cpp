@@ -39,7 +39,9 @@ void myDisplay() {
 	glLoadIdentity();
 	gluLookAt(3.0*cos(angle), 1.5, 3.0*sin(angle), 0,0,0, 0,1,0);
 
+	glLineWidth(3);
 	drawAxes();
+
 	drawBox(0.25,1);
 	glTranslatef(0,0.5,0);
 	glRotatef(-45,0,0,1);
@@ -63,7 +65,7 @@ int main(int argc, char **argv) {
 
 	glEnable(GL_DEPTH_TEST);
 
-    glClearColor(0.5, 0.5, 0.5, 1.0);
+    glClearColor(1.0, 1.0, 1.0, 1.0);
     glutDisplayFunc(myDisplay);
 	glutIdleFunc(myDisplay);
     glutMainLoop();
