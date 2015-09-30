@@ -1,4 +1,4 @@
-﻿빌드 시작: 2015-09-30 오전 10:01:55
+﻿빌드 시작: 2015-09-30 오전 11:20:12
      1>2 노드의 "C:\Users\수업\201502Graphics\201502_Graphics\ExCodes\Quiz01_Arm\Quiz01_Arm\Quiz01_Arm.vcxproj" 프로젝트(build 대상)입니다.
      1>InitializeBuildStatus:
          "AlwaysCreate"이(가) 지정되었기 때문에 "Debug\Quiz01_Arm.unsuccessfulbuild"을(를) 만들고 있습니다.
@@ -6,6 +6,7 @@
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
      1>c:\users\수업\201502graphics\201502_graphics\excodes\quiz01_arm\quiz01_arm\main.cpp(37): warning C4305: '+=' : 'double'에서 'float'(으)로 잘립니다.
+     1>c:\users\수업\201502graphics\201502_graphics\excodes\quiz01_arm\quiz01_arm\main.cpp(57): warning C4305: '인수' : 'double'에서 'float'(으)로 잘립니다.
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\수업\201502Graphics\201502_Graphics\ExCodes\Quiz01_Arm\Debug\Quiz01_Arm.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Quiz01_Arm.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\수업\201502Graphics\201502_Graphics\ExCodes\Quiz01_Arm\Debug\Quiz01_Arm.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\수업\201502Graphics\201502_Graphics\ExCodes\Quiz01_Arm\Debug\Quiz01_Arm.lib" /MACHINE:X86 Debug\main.obj
      1>main.obj : warning LNK4075: '/EDITANDCONTINUE'이(가) '/INCREMENTAL:NO' 사양으로 인해 무시됩니다.
@@ -19,4 +20,4 @@
 
 빌드했습니다.
 
-경과 시간: 00:00:00.54
+경과 시간: 00:00:00.59

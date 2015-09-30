@@ -37,21 +37,27 @@ void myDisplay() {
 	angle += 0.01;
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	gluLookAt(3.0*cos(angle), 1.5, 3.0*sin(angle), 0,0,0, 0,1,0);
+	gluLookAt(3.0*cos(angle), 2.5, 3.0*sin(angle), 0,1.5,0, 0,1,0);
 
 	glLineWidth(3);
 	drawAxes();
+	glTranslatef(0, 0.5, 0);
+	drawBox(0.25,1);
 
+	glTranslatef(0, 0.5, 0);
+	glRotatef(45, 0,0,1);
+	glTranslatef(0, 0.5, 0);
+	drawAxes();
 	drawBox(0.25,1);
-	glTranslatef(0,0.5,0);
-	glRotatef(-45,0,0,1);
-	glTranslatef(0,0.5,0);
-	drawBox(0.25,1);
+
+	glTranslatef(0, 0.5,0);
+	glRotatef(45, 0,0,1);
+	glTranslatef(0, 0.25, 0);
+	drawAxes();
+	drawBox(0.1,0.5);
+
 	
-	glTranslatef(0,0.5,0);
-	glRotatef(-45,0,0,1);
-	glTranslatef(0,0.5,0);
-	drawBox(0.25,1);
+	
     
 	glutSwapBuffers();
 }
