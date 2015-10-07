@@ -1,0 +1,4 @@
+\beamer@slide {fig:OGL_camera:glOrthoXProjection}{6}
+\beamer@slide {eq:OGL_camera:glFrustumMatrix}{16}
+\beamer@slide {eq:OGL_camera:glFrustumMatrix}{17}
+\beamer@slide {eq:OGL_camera:frustumYProjection}{20}

@@ -1,0 +1,13 @@
+\frametitle{glFrustum과 gluPerspective}
+
+\begin{verbatim}
+gluPerspective(fovy, aspect, near, far);
+glFrustum(left,right,bottom,top,near,far);
+\end{verbatim}
+
+$$top = near \cdot \tan \frac{\theta}{2}$$
+$$bottom = -near \cdot \tan \frac{\theta}{2}$$
+$$right = top \cdot aspect$$
+$$left = bottom \cdot aspect$$
+
+

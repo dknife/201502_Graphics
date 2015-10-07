@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.3.4)  17 SEP 2015 17:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.3.4)  7 OCT 2015 08:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1227,7 +1227,11 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 (/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 ))
-(./Lec5_OGLCamera.aux)
+(./Lec5_OGLCamera.aux
+
+LaTeX Warning: Label `eq:OGL_camera:glFrustumMatrix' multiply defined.
+
+)
 \openout1 = `Lec5_OGLCamera.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
@@ -1444,11 +1448,11 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 83.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Package epstopdf Info: Source file: <OGL_camera/coordinatesInPipeline.eps>
-(epstopdf)                    date: 2014-10-17 16:10:18
+(epstopdf)                    date: 2015-09-18 14:51:27
 (epstopdf)                    size: 260896 bytes
 (epstopdf)             Output file: <OGL_camera/coordinatesInPipeline-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2014-10-17 16:12:06
+(epstopdf)                    date: 2015-09-18 14:51:27
 (epstopdf)                    size: 177919 bytes
 (epstopdf)             Command: <repstopdf --outfile=OGL_camera/coordinatesInPi
 peline-eps-converted-to.pdf OGL_camera/coordinatesInPipeline.eps>
@@ -1473,15 +1477,15 @@ Overfull \vbox (1.50224pt too high) detected at line 83
 
 ]
 Package epstopdf Info: Source file: <OGL_camera/cameraViewVolume.eps>
-(epstopdf)                    date: 2014-05-28 15:24:36
+(epstopdf)                    date: 2015-09-18 14:51:27
 (epstopdf)                    size: 65211 bytes
 (epstopdf)             Output file: <OGL_camera/cameraViewVolume-eps-converted-
 to.pdf>
-(epstopdf)                    date: 2014-05-28 15:25:58
+(epstopdf)                    date: 2015-09-18 14:51:27
 (epstopdf)                    size: 9423 bytes
 (epstopdf)             Command: <repstopdf --outfile=OGL_camera/cameraViewVolum
 e-eps-converted-to.pdf OGL_camera/cameraViewVolume.eps>
-(epstopdf)             \includegraphics on input line 122.
+(epstopdf)             \includegraphics on input line 124.
 Package epstopdf Info: Output file is already uptodate.
 
 <OGL_camera/cameraViewVolume-eps-converted-to.pdf, id=94, 473.77pt x 350.30875p
@@ -1489,37 +1493,320 @@ t>
 File: OGL_camera/cameraViewVolume-eps-converted-to.pdf Graphic file (type pdf)
  <use OGL_camera/cameraViewVolume-eps-converted-to.pdf>
 Package pdftex.def Info: OGL_camera/cameraViewVolume-eps-converted-to.pdf used 
-on input line 122.
-(pdftex.def)             Requested size: 230.88423pt x 170.71652pt.
-
-Overfull \vbox (8.27504pt too high) detected at line 122
- []
-
-[4
+on input line 124.
+(pdftex.def)             Requested size: 192.40352pt x 142.26378pt.
+ [4
 
  <./OGL_camera/cameraViewVolume-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <OGL_camera/cameraViewVolume.eps>
-(epstopdf)                    date: 2014-05-28 15:24:36
-(epstopdf)                    size: 65211 bytes
-(epstopdf)             Output file: <OGL_camera/cameraViewVolume-eps-converted-
-to.pdf>
-(epstopdf)                    date: 2014-05-28 15:25:58
-(epstopdf)                    size: 9423 bytes
-(epstopdf)             Command: <repstopdf --outfile=OGL_camera/cameraViewVolum
-e-eps-converted-to.pdf OGL_camera/cameraViewVolume.eps>
-(epstopdf)             \includegraphics on input line 139.
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+ (./Lec5_OGLCamera.vrb) [5
+
+]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+
+(./Lec5_OGLCamera.vrb
+Package epstopdf Info: Source file: <OGL_camera/glOrthoXProjection.eps>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 103750 bytes
+(epstopdf)             Output file: <OGL_camera/glOrthoXProjection-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 11672 bytes
+(epstopdf)             Command: <repstopdf --outfile=OGL_camera/glOrthoXProject
+ion-eps-converted-to.pdf OGL_camera/glOrthoXProjection.eps>
+(epstopdf)             \includegraphics on input line 9.
 Package epstopdf Info: Output file is already uptodate.
-File: OGL_camera/cameraViewVolume-eps-converted-to.pdf Graphic file (type pdf)
 
-<use OGL_camera/cameraViewVolume-eps-converted-to.pdf>
-Package pdftex.def Info: OGL_camera/cameraViewVolume-eps-converted-to.pdf used 
-on input line 139.
-(pdftex.def)             Requested size: 230.88423pt x 170.71652pt.
-
-Overfull \vbox (8.27504pt too high) detected at line 139
+<OGL_camera/glOrthoXProjection-eps-converted-to.pdf, id=122, 279.0425pt x 226.8
+475pt>
+File: OGL_camera/glOrthoXProjection-eps-converted-to.pdf Graphic file (type pdf
+)
+ <use OGL_camera/glOrthoXProjection-eps-converted-to.pdf>
+Package pdftex.def Info: OGL_camera/glOrthoXProjection-eps-converted-to.pdf use
+d on input line 9.
+(pdftex.def)             Requested size: 209.99667pt x 170.71652pt.
+)
+Overfull \vbox (34.19975pt too high) detected at line 160
  []
 
-[5
+[6
+
+ <./OGL_camera/glOrthoXProjection-eps-converted-to.pdf>]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+
+(./Lec5_OGLCamera.vrb) [7
+
+]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+ (./Lec5_OGLCamera.vrb
+Package epstopdf Info: Source file: <OGL_camera/perspectiveCam.eps>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 47382 bytes
+(epstopdf)             Output file: <OGL_camera/perspectiveCam-eps-converted-to
+.pdf>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 7280 bytes
+(epstopdf)             Command: <repstopdf --outfile=OGL_camera/perspectiveCam-
+eps-converted-to.pdf OGL_camera/perspectiveCam.eps>
+(epstopdf)             \includegraphics on input line 14.
+Package epstopdf Info: Output file is already uptodate.
+
+<OGL_camera/perspectiveCam-eps-converted-to.pdf, id=162, 473.77pt x 350.30875pt
+>
+File: OGL_camera/perspectiveCam-eps-converted-to.pdf Graphic file (type pdf)
+ <use OGL_camera/perspectiveCam-eps-converted-to.pdf>
+Package pdftex.def Info: OGL_camera/perspectiveCam-eps-converted-to.pdf used on
+ input line 14.
+(pdftex.def)             Requested size: 230.88423pt x 170.71652pt.
+)
+Overfull \vbox (10.50421pt too high) detected at line 211
+ []
+
+[8
+
+ <./OGL_camera/perspectiveCam-eps-converted-to.pdf>]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+ (./Lec5_OGLCamera.vrb
+Package epstopdf Info: Source file: <OGL_camera/perspectiveCam.eps>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 47382 bytes
+(epstopdf)             Output file: <OGL_camera/perspectiveCam-eps-converted-to
+.pdf>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 7280 bytes
+(epstopdf)             Command: <repstopdf --outfile=OGL_camera/perspectiveCam-
+eps-converted-to.pdf OGL_camera/perspectiveCam.eps>
+(epstopdf)             \includegraphics on input line 14.
+Package epstopdf Info: Output file is already uptodate.
+File: OGL_camera/perspectiveCam-eps-converted-to.pdf Graphic file (type pdf)
+
+<use OGL_camera/perspectiveCam-eps-converted-to.pdf>
+Package pdftex.def Info: OGL_camera/perspectiveCam-eps-converted-to.pdf used on
+ input line 14.
+(pdftex.def)             Requested size: 230.88423pt x 170.71652pt.
+)
+Overfull \vbox (10.50421pt too high) detected at line 231
+ []
+
+[9
+
+]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+ (./Lec5_OGLCamera.vrb
+Package epstopdf Info: Source file: <OGL_camera/projection.eps>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 31660 bytes
+(epstopdf)             Output file: <OGL_camera/projection-eps-converted-to.pdf
+>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 6098 bytes
+(epstopdf)             Command: <repstopdf --outfile=OGL_camera/projection-eps-
+converted-to.pdf OGL_camera/projection.eps>
+(epstopdf)             \includegraphics on input line 5.
+Package epstopdf Info: Output file is already uptodate.
+
+<OGL_camera/projection-eps-converted-to.pdf, id=181, 564.1075pt x 451.6875pt>
+File: OGL_camera/projection-eps-converted-to.pdf Graphic file (type pdf)
+
+<use OGL_camera/projection-eps-converted-to.pdf>
+Package pdftex.def Info: OGL_camera/projection-eps-converted-to.pdf used on inp
+ut line 5.
+(pdftex.def)             Requested size: 248.74173pt x 199.16928pt.
+) [10
+
+ <./OGL_camera/projection-eps-converted-to.pdf>]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+ (./Lec5_OGLCamera.vrb
+Package epstopdf Info: Source file: <OGL_camera/frustumConcept.eps>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 64301 bytes
+(epstopdf)             Output file: <OGL_camera/frustumConcept-eps-converted-to
+.pdf>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 8992 bytes
+(epstopdf)             Command: <repstopdf --outfile=OGL_camera/frustumConcept-
+eps-converted-to.pdf OGL_camera/frustumConcept.eps>
+(epstopdf)             \includegraphics on input line 10.
+Package epstopdf Info: Output file is already uptodate.
+
+<OGL_camera/frustumConcept-eps-converted-to.pdf, id=192, 378.41376pt x 280.0462
+5pt>
+File: OGL_camera/frustumConcept-eps-converted-to.pdf Graphic file (type pdf)
+ <use OGL_camera/frustumConcept-eps-converted-to.pdf>
+Package pdftex.def Info: OGL_camera/frustumConcept-eps-converted-to.pdf used on
+ input line 10.
+(pdftex.def)             Requested size: 230.6877pt x 170.71652pt.
+)
+Overfull \vbox (2.31255pt too high) detected at line 258
+ []
+
+[11
+
+ <./OGL_camera/frustumConcept-eps-converted-to.pdf>]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+ (./Lec5_OGLCamera.vrb
+Package epstopdf Info: Source file: <OGL_camera/deviceCoordinate.eps>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 57227 bytes
+(epstopdf)             Output file: <OGL_camera/deviceCoordinate-eps-converted-
+to.pdf>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 7318 bytes
+(epstopdf)             Command: <repstopdf --outfile=OGL_camera/deviceCoordinat
+e-eps-converted-to.pdf OGL_camera/deviceCoordinate.eps>
+(epstopdf)             \includegraphics on input line 7.
+Package epstopdf Info: Output file is already uptodate.
+
+<OGL_camera/deviceCoordinate-eps-converted-to.pdf, id=208, 280.04625pt x 265.99
+374pt>
+File: OGL_camera/deviceCoordinate-eps-converted-to.pdf Graphic file (type pdf)
+ <use OGL_camera/deviceCoordinate-eps-converted-to.pdf>
+Package pdftex.def Info: OGL_camera/deviceCoordinate-eps-converted-to.pdf used 
+on input line 7.
+(pdftex.def)             Requested size: 209.69658pt x 199.16928pt.
+) [12
+
+ <./OGL_camera/deviceCoordinate-eps-converted-to.pdf>]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+ (./Lec5_OGLCamera.vrb
+Package epstopdf Info: Source file: <OGL_camera/cameraPositioning.eps>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 63742 bytes
+(epstopdf)             Output file: <OGL_camera/cameraPositioning-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 9637 bytes
+(epstopdf)             Command: <repstopdf --outfile=OGL_camera/cameraPositioni
+ng-eps-converted-to.pdf OGL_camera/cameraPositioning.eps>
+(epstopdf)             \includegraphics on input line 12.
+Package epstopdf Info: Output file is already uptodate.
+
+<OGL_camera/cameraPositioning-eps-converted-to.pdf, id=223, 399.4925pt x 279.04
+25pt>
+File: OGL_camera/cameraPositioning-eps-converted-to.pdf Graphic file (type pdf)
+
+ <use OGL_camera/cameraPositioning-eps-converted-to.pdf>
+Package pdftex.def Info: OGL_camera/cameraPositioning-eps-converted-to.pdf used
+ on input line 12.
+(pdftex.def)             Requested size: 244.41545pt x 170.71652pt.
+)
+Overfull \vbox (1.54727pt too high) detected at line 289
+ []
+
+[13
+
+ <./OGL_camera/cameraPositioning-eps-converted-to.pdf>]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+
+(./Lec5_OGLCamera.vrb) [14
+
+]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+ (./Lec5_OGLCamera.vrb
+Package epstopdf Info: Source file: <OGL_camera/glFrustum.eps>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 24258 bytes
+(epstopdf)             Output file: <OGL_camera/glFrustum-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 5177 bytes
+(epstopdf)             Command: <repstopdf --outfile=OGL_camera/glFrustum-eps-c
+onverted-to.pdf OGL_camera/glFrustum.eps>
+(epstopdf)             \includegraphics on input line 11.
+Package epstopdf Info: Output file is already uptodate.
+
+<OGL_camera/glFrustum-eps-converted-to.pdf, id=250, 500.87125pt x 259.97125pt>
+File: OGL_camera/glFrustum-eps-converted-to.pdf Graphic file (type pdf)
+
+<use OGL_camera/glFrustum-eps-converted-to.pdf>
+Package pdftex.def Info: OGL_camera/glFrustum-eps-converted-to.pdf used on inpu
+t line 11.
+(pdftex.def)             Requested size: 328.90993pt x 170.71652pt.
+) [15
+
+ <./OGL_camera/glFrustum-eps-converted-to.pdf>]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+ (./Lec5_OGLCamera.vrb) [16
+
+]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+ (./Lec5_OGLCamera.vrbpdfTeX warning (ext4): destination with the same identifi
+er (name{eq:OGL_camera:glFrustumMatrix}) has been already used, duplicate ignor
+ed
+<to be read again> 
+                   \relax 
+l.6 \label{eq:OGL_camera:glFrustumMatrix}
+                                         ) [17
+
+]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+ (./Lec5_OGLCamera.vrb
+Package epstopdf Info: Source file: <OGL_camera/glFrustumXProjection.eps>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 111883 bytes
+(epstopdf)             Output file: <OGL_camera/glFrustumXProjection-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2015-09-18 14:51:27
+(epstopdf)                    size: 13282 bytes
+(epstopdf)             Command: <repstopdf --outfile=OGL_camera/glFrustumXProje
+ction-eps-converted-to.pdf OGL_camera/glFrustumXProjection.eps>
+(epstopdf)             \includegraphics on input line 10.
+Package epstopdf Info: Output file is already uptodate.
+
+<OGL_camera/glFrustumXProjection-eps-converted-to.pdf, id=274, 294.09875pt x 19
+5.73125pt>
+File: OGL_camera/glFrustumXProjection-eps-converted-to.pdf Graphic file (type p
+df)
+ <use OGL_camera/glFrustumXProjection-eps-converted-to.pdf>
+Package pdftex.def Info: OGL_camera/glFrustumXProjection-eps-converted-to.pdf u
+sed on input line 10.
+(pdftex.def)             Requested size: 213.77034pt x 142.26378pt.
+)
+Overfull \vbox (10.86674pt too high) detected at line 396
+ []
+
+[18
+
+ <./OGL_camera/glFrustumXProjection-eps-converted-to.pdf>]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+
+(./Lec5_OGLCamera.vrb) [19
+
+]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+ (./Lec5_OGLCamera.vrb) [20
+
+]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+ (./Lec5_OGLCamera.vrb)
+[21
+
+]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+ (./Lec5_OGLCamera.vrb) [22
+
+]
+\openout4 = `Lec5_OGLCamera.vrb'.
+
+ (./Lec5_OGLCamera.vrb) [23
 
 ]
 \tf@nav=\write6
@@ -1531,11 +1818,12 @@ Overfull \vbox (8.27504pt too high) detected at line 139
 \tf@snm=\write8
 \openout8 = `Lec5_OGLCamera.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 142.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 142.
- (./Lec5_OGLCamera.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 142.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 142.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 505.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 505.
+
+(./Lec5_OGLCamera.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 505.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 505.
 Package rerunfilecheck Info: File `Lec5_OGLCamera.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1543,58 +1831,79 @@ Package rerunfilecheck Info: File `Lec5_OGLCamera.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 142.
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 505.
  ) 
 Here is how much of TeX's memory you used:
- 23012 strings out of 493315
- 413201 string characters out of 6137905
+ 23413 strings out of 493315
+ 420497 string characters out of 6137905
  550261 words of memory out of 5000000
- 25841 multiletter control sequences out of 15000+600000
- 36515 words of font info for 131 fonts, out of 8000000 for 9000
+ 26143 multiletter control sequences out of 15000+600000
+ 45631 words of font info for 163 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  49i,16n,58p,422b,598s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
-sr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/
-local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/l
-ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/lo
-cal/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmac.pfb></usr/
-local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmad.pfb></us
-r/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmae.pfb></
-usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb1.pfb>
-</usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb2.pf
-b></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb3.
-pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb
-4.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummj
-mb5.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanum
-mjmb7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nan
-ummjmb8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/n
-anummjmb9.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1
-/nanummjmba.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtyp
-e1/nanummjmbb.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumt
-ype1/nanummjmbc.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanu
-mtype1/nanummjmc0.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/na
-numtype1/nanummjmc1.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/
-nanumtype1/nanummjmc2.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publi
-c/nanumtype1/nanummjmc5.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/pub
-lic/nanumtype1/nanummjmc6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/p
-ublic/nanumtype1/nanummjmc7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1
-/public/nanumtype1/nanummjmc8.pfb></usr/local/texlive/2013/texmf-dist/fonts/typ
-e1/public/nanumtype1/nanummjmc9.pfb></usr/local/texlive/2013/texmf-dist/fonts/t
-ype1/public/nanumtype1/nanummjmcc.pfb></usr/local/texlive/2013/texmf-dist/fonts
-/type1/public/nanumtype1/nanummjmcd.pfb></usr/local/texlive/2013/texmf-dist/fon
-ts/type1/public/nanumtype1/nanummjmce.pfb></usr/local/texlive/2013/texmf-dist/f
-onts/type1/public/nanumtype1/nanummjmd0.pfb></usr/local/texlive/2013/texmf-dist
-/fonts/type1/public/nanumtype1/nanummjmd2.pfb></usr/local/texlive/2013/texmf-di
-st/fonts/type1/public/nanumtype1/nanummjmd3.pfb></usr/local/texlive/2013/texmf-
-dist/fonts/type1/public/nanumtype1/nanummjmd4.pfb></usr/local/texlive/2013/texm
-f-dist/fonts/type1/public/nanumtype1/nanummjmd5.pfb></usr/local/texlive/2013/te
-xmf-dist/fonts/type1/public/nanumtype1/nanummjmd6.pfb>
-Output written on Lec5_OGLCamera.pdf (5 pages, 1660787 bytes).
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></u
+sr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
+/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
+ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loc
+al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local
+/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/t
+exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texl
+ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive
+/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/20
+13/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/201
+3/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2013/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2013/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2013/texm
+f-dist/fonts/type1/public/nanumtype1/nanummjmac.pfb></usr/local/texlive/2013/te
+xmf-dist/fonts/type1/public/nanumtype1/nanummjmad.pfb></usr/local/texlive/2013/
+texmf-dist/fonts/type1/public/nanumtype1/nanummjmae.pfb></usr/local/texlive/201
+3/texmf-dist/fonts/type1/public/nanumtype1/nanummjmaf.pfb></usr/local/texlive/2
+013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb0.pfb></usr/local/texlive
+/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb1.pfb></usr/local/texli
+ve/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb2.pfb></usr/local/tex
+live/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb3.pfb></usr/local/t
+exlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb4.pfb></usr/local
+/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb5.pfb></usr/loc
+al/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb7.pfb></usr/l
+ocal/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb8.pfb></usr
+/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb9.pfb></u
+sr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmba.pfb><
+/usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmbb.pfb
+></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmbc.p
+fb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjmbd
+.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanummjm
+be.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanumm
+jmc0.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/nanu
+mmjmc1.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/na
+nummjmc2.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype1/
+nanummjmc5.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumtype
+1/nanummjmc6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanumty
+pe1/nanummjmc7.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nanum
+type1/nanummjmc8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/nan
+umtype1/nanummjmc9.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/n
+anumtype1/nanummjmca.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public
+/nanumtype1/nanummjmcc.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publ
+ic/nanumtype1/nanummjmcd.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/pu
+blic/nanumtype1/nanummjmce.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/
+public/nanumtype1/nanummjmd0.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
+1/public/nanumtype1/nanummjmd1.pfb></usr/local/texlive/2013/texmf-dist/fonts/ty
+pe1/public/nanumtype1/nanummjmd2.pfb></usr/local/texlive/2013/texmf-dist/fonts/
+type1/public/nanumtype1/nanummjmd3.pfb></usr/local/texlive/2013/texmf-dist/font
+s/type1/public/nanumtype1/nanummjmd4.pfb></usr/local/texlive/2013/texmf-dist/fo
+nts/type1/public/nanumtype1/nanummjmd5.pfb></usr/local/texlive/2013/texmf-dist/
+fonts/type1/public/nanumtype1/nanummjmd6.pfb></usr/local/texlive/2013/texmf-dis
+t/fonts/type1/public/nanumtype1/nanummjmd7.pfb>
+Output written on Lec5_OGLCamera.pdf (23 pages, 2221849 bytes).
 PDF statistics:
- 269 PDF objects out of 1000 (max. 8388607)
- 171 compressed objects within 2 object streams
- 11 named destinations out of 1000 (max. 500000)
- 83 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 560 PDF objects out of 1000 (max. 8388607)
+ 398 compressed objects within 4 object streams
+ 50 named destinations out of 1000 (max. 500000)
+ 123 words of extra memory for PDF output out of 10000 (max. 10000000)
 
