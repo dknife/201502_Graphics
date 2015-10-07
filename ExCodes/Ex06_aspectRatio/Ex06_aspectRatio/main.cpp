@@ -39,26 +39,11 @@ void drawPlane(void) {
 	glVertex3f(  0, 0,-20);
 	glVertex3f(  0, 0, 20);
 	glEnd();
-
 }
-
-void drawBox(float w, float h) {
-	glPushMatrix();
-	glScalef(w,h,w);
-	glutWireCube(1);
-	glPopMatrix();
-}
-
 
 void myDisplay() {
-    glClear(GL_DEPTH_BUFFER_BIT|GL_COLOR_BUFFER_BIT);
+	glClear(GL_DEPTH_BUFFER_BIT|GL_COLOR_BUFFER_BIT);
 
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluPerspective(60, 1, 0.1, 100); //-2.0, 2.0, -2.0, 2.0, -1.0, 1.0);
-	
-	static float angle = 0.0;
-	angle += 0.01;
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	gluLookAt(0.0, 2.5, 5.0, 0,0,0, 0,1,0);
@@ -73,27 +58,37 @@ void myDisplay() {
 
 	glutWireTeapot(0.5);
 
-
-
-	
-	
-    
 	glutSwapBuffers();
 }
 
+void reshape(int w, int h) {
+	float asp = float(w)/h;
+	glViewport(0,0,w,h);
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluPerspective(60, asp, 0.1, 100);
+	glutPostRedisplay();
+}
+
 int main(int argc, char **argv) {
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE|GLUT_DEPTH|GLUT_RGBA);
-    glutInitWindowPosition(0,0);
-    glutInitWindowSize(512, 512);
-    glutCreateWindow("Camera - Aspect");
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_DOUBLE|GLUT_DEPTH|GLUT_RGBA);
+	glutInitWindowPosition(0,0);
+	glutInitWindowSize(512, 512);
+	glutCreateWindow("Camera - Aspect");
 
 	glEnable(GL_DEPTH_TEST);
 
-    glClearColor(1.0, 1.0, 1.0, 1.0);
-    glutDisplayFunc(myDisplay);
+	glClearColor(1.0, 1.0, 1.0, 1.0);
+	// display callback and idle callback
+	glutDisplayFunc(myDisplay);
 	glutIdleFunc(myDisplay);
-    glutMainLoop();
 
-    return 0;
+	//reshape callback
+	glutReshapeFunc(reshape);
+
+	glutMainLoop();
+
+	return 0;
 }
