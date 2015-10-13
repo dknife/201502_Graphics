@@ -1,0 +1,604 @@
+\documentclass{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{Madrid}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{seahorse} % or try albatross, beaver, crane, ...
+  \usefonttheme{serif}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+} 
+
+\usepackage[english]{babel}
+\usepackage{kotex}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{pgffor}
+\input{algorithmbisEnv.tex}
+
+\title[3D 그래픽스 프로그래밍]{그래픽스 강의노트 06 - 조명 1}
+\author{강영민}
+\institute{동명대학교}
+\date{2015년 2학기}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Uncomment these lines for an automatically generated outline.
+%\begin{frame}{Outline}
+%  \tableofcontents
+%\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}[fragile]{깊이 버퍼와 이중 버퍼 사용 예제}
+%   \lstset{language=C++,frame=none,escapechar=^}%
+%    \foreach \n in {1,26,...,50} {%
+%       \only<+>{%
+%            \edef\m{\the\numexpr\n+24\relax}%
+%            \edef\thesubtitle{{Lines \n--\m\ / 50}}%
+%            \expandafter\framesubtitle\thesubtitle
+%            \lstinputlisting[firstline=\n,lastline=\m]{./Codes/L03_depthAndDoubleBuffers.tex}%
+%       }%
+%    }
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}[fragile]{간단한 OpenGL 프로그램 테스트}
+%\lstset{language=C++,escapechar=^} 
+%\begin{lstlisting}
+%#include "headers.h"
+%
+%void myDisplay() {
+%   glClear(GL_COLOR_BUFFER_BIT);
+%    glFlush();    
+%}
+%\end{lstlisting}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{음영 계산의 필요성}
+
+\begin{itemize}
+\item 음영(陰影) 계산, 혹은 셰이딩(shading)은 어떤 물체의 표면에서 어두운 부분과 밝은 부분을 서로 다른 밝기로 그려내는 것
+\item 모든 면을 동일한 색으로 그리면 입체감이 없다.
+\end{itemize}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[height=4cm]{OGL_light/shading.png}
+\end{figure}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{조명과 재질}
+
+음영 계산에 필요한 두 가지 핵심 요소
+\begin{itemize}
+\item 빛
+	\begin{itemize}
+	\item 컴퓨터 그래픽스의 최종 결과는 우리의 눈을 통해 입력되는 시각 정보
+	\item 눈이 인지하는 신호는 전자기파
+	\item 우리가 인지할 수 있는 영역의 전자기파: 가시광선(可視光線)
+	\item 이 가시광선을 일상적으로 `빛'이라 부름
+	\end{itemize}
+\item 재질(材質,material)
+	\begin{itemize}
+	\item 같은 빛이라고 모든 물체가 같은 색으로 보이지는 않음
+	\item 물체는 저마다의 특성에 따라 서로 다른 방식으로 빛을 반사
+	\item 물체가 가진 반사 특성을 재질이라고 함
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{지역조명과 전역조명}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[height=4cm]{OGL_light/local_illumination.jpg}
+    \includegraphics[height=4cm]{OGL_light/global_illumination.jpg}
+\end{figure}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{광원 모델}
+
+일반적인 광원(光源, light source)은 다루기가 쉽지 않다. 하나의 광원은 일정한 면적이나 체적을 가지기 때문에 이 광원에서 나온 빛들을 적분해야 한다.
+실제 실시간 렌더링에서는 광원을 하나의 점이나 방향으로 보는 단순화된 모델을 사용한다. 사용되는 광원은 다음과 같은 것들이 있다.
+
+\begin{center}
+    \begin{tabular}{ |l| p{12cm} |}
+    \hline
+    {\small \sf \bf 광원 종류} & {\small \sf \bf 특징} \\ \hline
+    {\small \sf 점광원} & {\small \sf 광원의 위치와 색으로 결정. 전방향(omnidirection)으로 빛 진행.}\\ \hline
+    {\small \sf 집중광원 } & {\small \sf 점광원에서 일부 입체각으로 빛을 제한.}\\ \hline
+    {\small \sf 방향광원 } & {\small \sf 특정한 위치가 아니라 방향에 광원 존재.} \\ \hline
+    {\small \sf 주변광원 } & {\small \sf 모든 곳에 동일하게 가해지는 빛.}\\ \hline
+    \end{tabular}
+\end{center}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{지역 조명 모델 - 퐁(Phong) 모델}
+
+정반사와 난반사, 주변광 반사 특성을 표현할 수 있는 간단하고 빠른 모델
+
+다음과 같은 정보가 필요
+
+\begin{itemize}
+\item 광원으로 향하는 벡터 $\mathbf L$
+\item 카메라(시점)을 향하는 벡터 $\mathbf E$
+\item 법선 벡터 $\mathbf N$
+\item 이상적인 반사 방향 $\mathbf R$
+\end{itemize}
+
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[height=4cm]{OGL_light/lightingVectors.eps}
+\end{figure}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{퐁(Phong) 모델: 광원과 재질 - 색상}
+
+\begin{itemize}
+\item 퐁 모델은 난반사, 정반사, 주변광을 각각 독립적으로 계산하여 합성
+\item 각각의 반사 요소에 따라 결정해야 하는 것은 눈을 향해 오는 빛의 강도(intensity)와 색상
+\item 색상의 결정
+	\begin{itemize}
+	\item 어떤 광원에서 나오는 빛의 색상이 ${\mathbf l} = (l_r, l_g, l_b)$
+	\item 물체의 재질 색상이 ${\mathbf m} = (m_r, m_g, m_b)$
+	\item 빛의 색상은 이 빛이 눈에 감지되었을 때 우리가 느끼는 색이
+	\item 빨간 색을 가진 물체의 재질 색상 (1.0, 0.0, 0.0)은 도착하는 빛의 RGB 3 개 채널에서 R 채널의 빛을 100\% 반사한다는 것을 의미
+	\end{itemize}
+\end{itemize}
+
+반사되는 빛의 색상은 다음과 같다.
+
+$$\mathbf c = (l_r m_r, l_g m_g, l_b m_b)$$
+
+이를 이렇게 표현한다.
+
+$$\mathbf c = \mathbf l \otimes \mathbf m $$
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{퐁(Phong) 모델: 광원과 재질 - 광강도}
+
+\begin{itemize}
+\item 이 계산은 눈에 감지되는 빛의 색상을 결정
+\item 같은 색상이라도 밝고 어두울 수 있음
+\item 이러한 음영을 고려해야 입체적인 물체로 보임
+\item 이러한 음영은 광강도(光强度, light intensity)에 의해 결정
+\item 이 광강도의 값은 스칼라(scalar) 값으로 $I$로 표현
+\item 실제로 눈에 보이는 색은 광원과 재질에 의해 결정되는 색상 $\mathbf c$와 광강도 $I$에 의해 다음과 같이 결정
+\end{itemize}
+
+$$\kappa = I \mathbf c$$
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{퐁(Phong) 모델: 최종 결정 반사색}
+
+\begin{itemize}
+\item 퐁 모델은 각각의 반사 요소를 모두 따로 계산
+\item 난반사 요소와 관련된 값에는 아래첨자 d
+\item 정반사에는 s
+\item 주변광 반사에는 a
+\item 눈에 관측되는 색상은 다음과 같음
+\end{itemize}
+
+\begin{eqnarray}
+\kappa & = & I_a \mathbf c_a + I_d \mathbf c_d + I_s \mathbf c_s \nonumber
+\end{eqnarray}
+
+이때, 주변광의 광강도는 상수 값을 가지므로 $I_a$는 1로 설정할 수 있다. 따라서 다음 식으로 바꿀 수 있다.
+
+\begin{eqnarray} \nonumber
+\kappa & = & \mathbf c_a + I_d \mathbf c_d + I_s \mathbf c_s \\ \nonumber 
+&  =  & \mathbf l_a \otimes \mathbf m_a + I_d \mathbf l_d \otimes \mathbf m_d + I_s \mathbf l_s \otimes \mathbf m_s \nonumber
+\end{eqnarray}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{퐁 모델 광강도(intensity)의 계산 - 난반사}
+
+\begin{itemize}
+\item 퐁 모델에서 계산해야 하는 광강도는 난반사 $I_d$와 정반사 $I_s$
+\item 난반사는 모든 방향에 동등하게 빛이 퍼지는 것으로 가정
+\item 눈이 어디에 있든지 동일한 색상 관찰
+\item 눈의 움직임에 따라 변하는 하일라이트(highlight)는 표현하지 못 함
+\item 색을 칠하려고 하는 한 지점에 대해 어디서 쳐다 보든지 동일한 밝기
+\item 밝기는 얼마나 많은 에너지가 해당 지점에 떨어지는지에 달려 있음
+\end{itemize}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[height=4cm]{OGL_light/diffuseConcept.eps}
+\end{figure}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{퐁 모델 광강도(intensity)의 계산 - 난반사 1/2}
+
+\begin{itemize}
+\item 퐁 모델에서 계산해야 하는 광강도는 난반사 $I_d$와 정반사 $I_s$
+\item 난반사는 모든 방향에 동등하게 빛이 퍼지는 것으로 가정
+\item 눈이 어디에 있든지 동일한 색상 관찰
+\item 눈의 움직임에 따라 변하는 하일라이트(highlight)는 표현하지 못 함
+\item 색을 칠하려고 하는 한 지점에 대해 어디서 쳐다 보든지 동일한 밝기
+\item 밝기는 얼마나 많은 에너지가 해당 지점에 떨어지는지에 달려 있음
+\end{itemize}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[height=4cm]{OGL_light/diffuseConcept.eps}
+\end{figure}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{퐁 모델 광강도(intensity)의 계산 - 난반사 2/2}
+
+\begin{itemize}
+\item 이 값은 광원 벡터 $\mathbf L$과 법선 벡터 $\mathbf N$이 일치할 때 최대이며, 90도를 이룰 때 0이 됨
+\item 이 값은 두 벡터의 내적, 즉 두 벡터 사잇각의 코사인(cosine)에 비례한다는 것이 램버트 반사(Lambertian reflectance) 모델
+\item 따라서 광강도를 계산해야하는 지점에서 빛을 향하는 방향벡터 $\mathbf L$과 표면 법선벡터 $\mathbf N$의 내적으로  $I_d$￼를 구할 수 있음
+\end{itemize}
+
+\begin{eqnarray}
+\label{eq:diffuseIntensity}
+I_d  =  \cos \theta   = \mathbf L \cdot \mathbf N
+\end{eqnarray}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{퐁 모델 광강도(intensity)의 계산 - 정반사 1/2}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[height=4cm]{OGL_light/specularConcept.eps}
+\end{figure}
+
+정반사는 거울과 같이 입사각에 대칭되는 방향으로 반사되는 것이다. 그런데, 실제 물체들은 이런 이상적인 정반사가 아니라 반사 방향으로 빛이 강하게 진행하기는 하지만 다른 방향으로 조금씩 빛이 나간다. 퐁 모델에서 사용하는 정반사 모델은 거울과 같은 반사가 아니라 반사 벡터 $\mathbf R$ 중심으로 퍼지는 반사를 표현한다.
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{퐁 모델 광강도(intensity)의 계산 - 정반사 2/2}
+
+\begin{itemize}
+\item 정반사는 반사 벡터 $\mathbf R$ 근처에서 강하게 관찰되기 때문에 눈을  $\mathbf R$ 근처로 가져가야 강한 반사
+\item 정반사의 광강도 $I_s$￼는 $\mathbf R$과 $\mathbf E$의 사잇각의 코사인에 연관
+\item 물체의 재질에 따라 $\mathbf R$ 방향으로 집중되는 정도가 달라짐 - 물체의 반질함(shininess) $\sigma$에 의해 결정
+\end{itemize}
+
+\begin{eqnarray}
+\label{eq:specularIntensity}
+I_d  = \cos \theta =  (\mathbf R \cdot \mathbf E )^\sigma \nonumber
+\end{eqnarray}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{퐁 모델 광강도(intensity)의 계산 - 주변광}
+
+주변광의 광강도는 언제나 1이다. 따라서 모든 물체는 주변광과 주변광 반사 재질에 의한 색상
+$\mathbf l_a \otimes \mathbf m_a$￼을 기본적으로 갖게 된다.  이것은 지역조명 기법의 단점인 지나치게 어두운 부분을 없애는 역할을 수행한다.
+
+\begin{eqnarray} \nonumber
+\kappa & = & \mathbf c_a + I_d \mathbf c_d + I_s \mathbf c_s \\ \nonumber 
+&  =  & \mathbf l_a \otimes \mathbf m_a + I_d \mathbf l_d \otimes \mathbf m_d + I_s \mathbf l_s \otimes \mathbf m_s \nonumber
+\end{eqnarray}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{수정된 퐁 모델 - 블린(Blinn) 모델}
+
+\begin{itemize}
+\item 퐁 모델은 정반사 광강도 계산에서 반사 벡터 $\mathbf R$을 계산해야 함
+\item 블린(Blinn)은 이 반사벡터 대신에 반 벡터(halfway vector)라는 것을 도입
+\item 반 벡터 $\mathbf H$는 광원 벡터와 시선 벡터 $\mathbf E$를 더해서 정규화: $\mathbf H = \frac{\mathbf L + \mathbf E}{|\mathbf L + \mathbf E|}$
+\end{itemize}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[height=5cm]{OGL_light/halfwayVector.eps}
+\end{figure}
+
+\begin{eqnarray}
+\kappa  =  \mathbf l_a \otimes \mathbf m_a + (\mathbf L \cdot \mathbf N) \mathbf l_d \otimes \mathbf m_d + 
+(\mathbf H \cdot \mathbf N )^\sigma \mathbf l_s \otimes \mathbf m_s \nonumber
+\end{eqnarray}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{OpenGL 조명 - 조명과 재질 적용할 데이터 준비}
+
+\begin{itemize}
+\item 조명의 위치는 동차좌표(homogeneous coordinate)로 표현
+\item 마지막 성분이 1이면 점광원이고, 0이면 방향광원(directional light source)
+\end{itemize}
+
+\lstset{language=C++, escapechar=^} 
+\begin{lstlisting}
+//^{\it 재질의 정반사, 난반사, 주변광, 반질거림 특성으로 사용될 데이터}^
+// values for material specification
+GLfloat mat_specular[] = { 1.0, 1.0f, 1.0f, 1.0f };
+GLfloat mat_diffuse[] =  { 0.0, 1.0f, 1.0f, 1.0f };
+GLfloat mat_ambient[] = { 1.0, 1.0, 1.0, 1.0 };
+GLfloat mat_shininess[] = { 120.0 };
+// ^{\it 광원의 정반사, 난반사, 주변광 특성으로 사용될 데이터}^
+// values for light specification
+GLfloat lit_specular[] = { 1.0,1.0f,1.0f,1.0f };
+GLfloat lit_diffuse[] =  { 0.0,1.0f,1.0f,1.0f };
+GLfloat lit_ambient[] =  { 0.5,0.0f,0.0f,1.0f };
+// ^{\it 광원의 위치로 사용될 데이터}^
+// values for light positioning
+GLfloat light_position[] = {1.0,1.0f,1.0f,0.0f};
+
+\end{lstlisting}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{OpenGL 조명 - 조명과 재질 적용}
+
+
+실제 조명과 재질에 적용
+\begin{itemize}
+\item 조명의 특성을 설정하는 함수는 {\sf glLight*}
+\item 재질 특성을 설정하는 것은 {\sf glMaterial*}
+\end{itemize}
+
+\lstset{language=C++, escapechar=^} 
+\begin{lstlisting}
+// ^{\it 조명과 재질의 특성을 준비된 데이터로 설정하는 함수}^
+void LightSet(void) {
+  glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+  glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+  glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
+  glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+
+  glLightfv(GL_LIGHT0, GL_SPECULAR, lit_specular);
+  glLightfv(GL_LIGHT0, GL_DIFFUSE, lit_diffuse);
+  glLightfv(GL_LIGHT0, GL_AMBIENT, lit_ambient);
+  glEnable(GL_LIGHTING);
+  glEnable(GL_LIGHT0);
+}
+
+//^{\it 조명의 위치를 설정하는 함수}^
+void LightPositioning(void) {
+  glLightfv(GL_LIGHT0, GL_POSITION,light_position);
+}
+\end{lstlisting}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{OpenGL 조명 - 렌더링}
+
+\lstset{language=C++, escapechar=^} 
+\begin{lstlisting}
+void init(int argc, char **argv) {
+  ^{\sf [[각종 초기화 작업]]^
+  LightSet(); // ^{\it 조명의 특성과 재질의 특성을 설정한다}^
+  glEnable(GL_DEPTH_TEST);
+}
+void display() {
+  ^{\sf [[GL\_MODELVIEW 모드 설정]]}^	
+  gluLookAt(0,1,2,0,0,0,0,1,0);
+  LightPositioning();  // ^{\it 점광원의 위치를 설정한다}^
+  glutSolidTeapot(0.5);
+  glutSwapBuffers();
+}
+\end{lstlisting}
+
+\begin{figure}[h!]
+  \centering
+    \begin{tabular}{cc}
+	\fbox{\includegraphics[height=3.4cm]{OGL_light/firstLighting.png}} &
+	\fbox{\includegraphics[height=3.4cm]{OGL_light/noAmbient.png}}\\
+	\sf \small (a) 주변광 포함 & \sf \small (b) 주변광 제외 
+	\end{tabular}
+\end{figure}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{OpenGL 조명 - 반질거림 조정}
+
+\lstset{language=C++, escapechar=^} 
+\begin{lstlisting}
+  for (int i=0; i<5; i++) {
+       // ^{\it 재질의 반질거림을 변경하여 설정하고 주전자를 그림}^
+       glMaterialf(GL_FRONT, GL_SHININESS, 4.0f+123.0f*(i/4.0)); 
+       for (int j=0; j<5; j++) {
+           glPushMatrix();
+           glTranslated(float(i)+0.5, float(j)+0.5, 0.0);
+           glRotated(45, 1, 1, 1);
+           glutSolidTeapot(0.4);
+           glPopMatrix();
+      }
+  }
+\end{lstlisting}
+
+\begin{figure}[h!]
+  \centering
+    \fbox{\includegraphics[height=4cm]{OGL_light/specularControl.png}}
+\end{figure}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{OpenGL 조명 - 점광원 구현 1/2}
+
+\lstset{language=C++, escapechar=^} 
+\begin{lstlisting}
+^{\sf [[광원과 재질의 색상 설정]]}^
+// ^{\it 광원의 위치를 설정한다.}^
+// ^{\it 광원의 좌표 가운데 w 성분이 1로 설정되어 있다}^
+// ^{\it 디스플레이 콜백에서 광원의 위치를 바꾸지만, w 좌표는 변경하지 않는다}^
+GLfloat lit_position[] = { 0.0f, 0.0f, 0.0f, ^{\bf 1.0f}^ }; // light position
+
+void SetLight() {    ^{\sf 이전 코드와 동일}^  }
+
+void init(void) {
+    ^{\sf [[윈도우, 버퍼 초기화, 카메라 설정 등의 초기 작업]]}^
+    SetLight();
+}
+
+void display() {
+    // ^{\sf [[버퍼 지우기, 모델뷰 행렬 모드 설정, 카메라 위치 설정 등 수행]]}^
+    static float t = 0.0; t+=0.01;
+    // ^{\it 광원의 위치를 설정함. w 좌표는 1로 고정하고 회전하도록 함}^
+    lit_position[0] = 5.0*sin(t); lit_position[2] = 5.0*cos(t);
+    glLightfv(GL_LIGHT0, GL_POSITION, lit_position);
+
+    for(int i=0;i<10;i++) {
+        for(int j=0;j<10;j++) {
+            glPushMatrix();
+            glTranslatef(i-4.5,j-4.5,0);
+            glutSolidSphere(0.5, 30, 30);
+            glPopMatrix();
+        }
+    }
+    // ^{\sf [[광원의 위치 등을 표시하여 확인할 수 있도록 함]]}^
+    glutSwapBuffers();
+}
+\end{lstlisting}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{OpenGL 조명 - 점광원 구현 2/2}
+
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[height=7cm]{OGL_light/pointLight.png}
+\end{figure}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{OpenGL 조명 - 집중광원에 필요한 요소}
+
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[height=7cm]{OGL_light/spotLight.eps}
+\end{figure}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{OpenGL 조명 - 집중광원 1/2}
+
+\lstset{language=C++, escapechar=^} 
+\begin{lstlisting}
+// ^{\it 집중 광원의 방향으로 사용될 데이터를 준비한다}^
+GLfloat spotDir[] = { 0.0f, 0.0f, -1.0f };
+
+void SetLight() {
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+    // set material properties
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+    glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
+    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+
+    // set light properties
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, lit_diffuse);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, lit_specular);
+    glLightfv(GL_LIGHT0, GL_AMBIENT, lit_ambient);
+
+    // ^{\it 집중광원에 필요한 데이터를 설정한다}^    
+    glLightf (GL_LIGHT0,GL_SPOT_CUTOFF,20.0f);
+    glLightfv(GL_LIGHT0,GL_SPOT_DIRECTION,spotDir);
+    // ^{\it Exponent 집중광의 테두리를 부드럽게 한다. 자세한 내용은 Reference API 등을 참고하라}^
+    glLightf (GL_LIGHT0,GL_SPOT_EXPONENT, 20.0f);
+
+}
+\end{lstlisting}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{OpenGL 조명 - 집중광원 2/2}
+
+\begin{figure}[h!]
+  \centering
+    \fbox{\includegraphics[height=7cm]{OGL_light/spotLight.png}}
+\end{figure}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+

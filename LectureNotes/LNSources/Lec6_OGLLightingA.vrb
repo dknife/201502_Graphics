@@ -1,0 +1,7 @@
+\frametitle{OpenGL 조명 - 집중광원 2/2}
+
+\begin{figure}[h!]
+  \centering
+    \fbox{\includegraphics[height=7cm]{OGL_light/spotLight.png}}
+\end{figure}
+
