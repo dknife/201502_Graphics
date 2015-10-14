@@ -1,4 +1,3 @@
-
 #ifdef WIN32
 #include <Windows.h>
 #include <gl/GL.h>
@@ -18,6 +17,31 @@ float zoom = 1.0;
 
 CCamera myCam;
 
+GLfloat matSpec[] = {1.0, 1.0, 1.0, 1.0};
+GLfloat matDiff[] = {1.0, 1.0, 0.0, 1.0};
+GLfloat matAmbi[] = {0.1, 0.1, 0.1, 1.0};
+GLfloat matShin[] = {127.0};
+
+GLfloat light[] = {1.0, 1.0, 1.0, 1.0};
+GLfloat lightPos[] = {1.0, 1.0, 1.0, 0.0};
+
+void LightSet(void) {
+	glMaterialfv(GL_FRONT, GL_SPECULAR, matSpec);
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, matDiff);
+	glMaterialfv(GL_FRONT, GL_AMBIENT, matAmbi);
+	glMaterialfv(GL_FRONT, GL_SHININESS, matShin);
+
+	glLightfv(GL_LIGHT0, GL_SPECULAR, light);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, light);
+	glLightfv(GL_LIGHT0, GL_AMBIENT, light);
+
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+}
+
+void LightPosition(void) {
+	glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
+}
 
 void drawAxes() {
 	glBegin(GL_LINES);
@@ -63,19 +87,22 @@ void myDisplay() {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	myCam.setGLCamera(); //gluLookAt(0.0, 2.5, 5.0, 0,0,0, 0,1,0);
+	LightPosition();
 
+	glDisable(GL_LIGHTING);
 	glLineWidth(1);
 	drawPlane();
 
-	glLineWidth(3);
+	glLineWidth(5);
 	drawAxes();
 	
-	glLineWidth(1);
-
-	glutWireTeapot(0.5);
+	glEnable(GL_LIGHTING);
+	glutSolidTeapot(0.5);
 	
 	glutSwapBuffers();
 }
+
+
 
 void setCamera(void) {
 	glMatrixMode(GL_PROJECTION);
@@ -111,6 +138,13 @@ void keyboard(unsigned char k, int x, int y) {
 	
 }
 
+void GLInit(void) {
+
+	glEnable(GL_DEPTH_TEST);
+	glClearColor(1.0, 1.0, 1.0, 1.0);
+
+	LightSet();
+}
 
 int main(int argc, char **argv) {
 	glutInit(&argc, argv);
@@ -119,9 +153,8 @@ int main(int argc, char **argv) {
 	glutInitWindowSize(512, 512);
 	glutCreateWindow("Camera - Aspect");
 
-	glEnable(GL_DEPTH_TEST);
-
-	glClearColor(1.0, 1.0, 1.0, 1.0);
+	GLInit();
+	
 	// display callback and idle callback
 	glutDisplayFunc(myDisplay);
 	glutIdleFunc(myDisplay);
