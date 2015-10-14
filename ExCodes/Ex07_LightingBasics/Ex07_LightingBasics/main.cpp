@@ -19,11 +19,11 @@ CCamera myCam;
 
 GLfloat matSpec[] = {1.0, 1.0, 1.0, 1.0};
 GLfloat matDiff[] = {1.0, 1.0, 0.0, 1.0};
-GLfloat matAmbi[] = {0.1, 0.1, 0.1, 1.0};
+GLfloat matAmbi[] = {0.5, 0.1, 0.1, 1.0};
 GLfloat matShin[] = {127.0};
 
 GLfloat light[] = {1.0, 1.0, 1.0, 1.0};
-GLfloat lightPos[] = {1.0, 1.0, 1.0, 0.0};
+GLfloat lightPos[] = {-1.0, 1.0, 1.0, 1.0};
 
 void LightSet(void) {
 	glMaterialfv(GL_FRONT, GL_SPECULAR, matSpec);
