@@ -73,7 +73,7 @@ void myDisplay() {
 	glLineWidth(1);
 
 	glutWireTeapot(0.5);
-
+	
 	glutSwapBuffers();
 }
 
@@ -100,8 +100,14 @@ void keyboard(unsigned char k, int x, int y) {
 	case 'c': bOrthoCam = bOrthoCam?false:true; break;
 	case 'w': zoom *= 1.05; break;
 	case 's': zoom *= 0.95; break;
-	case 'p': myCam.moveForward( 0.05); break;
-	case ';': myCam.moveForward(-0.05); break;
+	case 'o': myCam.moveForward( 0.05); break;
+	case 'l': myCam.moveForward(-0.05); break;
+	case 'k': myCam.moveRight(-0.05); break;
+	case ';': myCam.moveRight( 0.05); break;
+	case 'i': myCam.moveUp( 0.05); break;
+	case 'p': myCam.moveUp(-0.05); break;
+	case ',': myCam.rotate( 0.01f); break;
+	case '.': myCam.rotate(-0.01f); break;
 	}
 	setCamera();
 	

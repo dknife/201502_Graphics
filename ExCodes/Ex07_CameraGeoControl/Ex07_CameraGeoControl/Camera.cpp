@@ -7,6 +7,8 @@
 #include <GLUT/GLUT.h>
 #endif
 
+#include <stdio.h>
+#include <math.h>
 #include "Camera.h"
 
 
@@ -40,9 +42,19 @@ void CCamera::moveForward(float d) {
 }
 
 void CCamera::moveRight(float d) {
-	
+	for(int i=0;i<3;i++) loc[i] += right[i]*d;	
 }
 
 void CCamera::moveUp(float d) {
-	
+	for(int i=0;i<3;i++) loc[i] += up[i]*d;	
+}
+
+void CCamera::rotate(float angle) {
+	// change forward and right vectors
+	float c = cos(angle);
+	float s = sin(angle);	
+	forward[0] =  c*forward[0] + s*forward[2];
+	forward[2] = -s*forward[0] + c*forward[2];
+	right[0]   =  c*right[0]   + s*right[2];
+	right[2]   = -s*right[0]   + c*right[2];
 }

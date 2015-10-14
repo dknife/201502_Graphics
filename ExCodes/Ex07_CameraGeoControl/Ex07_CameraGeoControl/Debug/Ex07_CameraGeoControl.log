@@ -1,4 +1,4 @@
-﻿빌드 시작: 2015-10-14 오전 10:07:27
+﻿빌드 시작: 2015-10-14 오전 10:50:41
      1>2 노드의 "C:\Users\Administrator\201502_Graphics\ExCodes\Ex07_CameraGeoControl\Ex07_CameraGeoControl\Ex07_CameraGeoControl.vcxproj" 프로젝트(build 대상)입니다.
      1>InitializeBuildStatus:
          "AlwaysCreate"이(가) 지정되었기 때문에 "Debug\Ex07_CameraGeoControl.unsuccessfulbuild"을(를) 만들고 있습니다.
@@ -16,6 +16,10 @@
      1>c:\users\administrator\201502_graphics\excodes\ex07_camerageocontrol\ex07_camerageocontrol\main.cpp(102): warning C4305: '*=' : 'double'에서 'float'(으)로 잘립니다.
      1>c:\users\administrator\201502_graphics\excodes\ex07_camerageocontrol\ex07_camerageocontrol\main.cpp(103): warning C4305: '인수' : 'double'에서 'float'(으)로 잘립니다.
      1>c:\users\administrator\201502_graphics\excodes\ex07_camerageocontrol\ex07_camerageocontrol\main.cpp(104): warning C4305: '인수' : 'double'에서 'float'(으)로 잘립니다.
+     1>c:\users\administrator\201502_graphics\excodes\ex07_camerageocontrol\ex07_camerageocontrol\main.cpp(105): warning C4305: '인수' : 'double'에서 'float'(으)로 잘립니다.
+     1>c:\users\administrator\201502_graphics\excodes\ex07_camerageocontrol\ex07_camerageocontrol\main.cpp(106): warning C4305: '인수' : 'double'에서 'float'(으)로 잘립니다.
+     1>c:\users\administrator\201502_graphics\excodes\ex07_camerageocontrol\ex07_camerageocontrol\main.cpp(107): warning C4305: '인수' : 'double'에서 'float'(으)로 잘립니다.
+     1>c:\users\administrator\201502_graphics\excodes\ex07_camerageocontrol\ex07_camerageocontrol\main.cpp(108): warning C4305: '인수' : 'double'에서 'float'(으)로 잘립니다.
        Link:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Administrator\201502_Graphics\ExCodes\Ex07_CameraGeoControl\Debug\Ex07_CameraGeoControl.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Ex07_CameraGeoControl.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Administrator\201502_Graphics\ExCodes\Ex07_CameraGeoControl\Debug\Ex07_CameraGeoControl.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Administrator\201502_Graphics\ExCodes\Ex07_CameraGeoControl\Debug\Ex07_CameraGeoControl.lib" /MACHINE:X86 Debug\Camera.obj
          Debug\main.obj
@@ -30,4 +34,4 @@
 
 빌드했습니다.
 
-경과 시간: 00:00:00.77
+경과 시간: 00:00:01.29

@@ -16,6 +16,7 @@ public:
 	void moveForward(float d);
 	void moveRight(float d);
 	void moveUp(float d);
+	void rotate(float angle);
 
 };
 
