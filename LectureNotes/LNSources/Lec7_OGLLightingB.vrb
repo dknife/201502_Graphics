@@ -1,0 +1,7 @@
+\frametitle{메시(mesh) 그리기 - 렌더링 결과}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[height=7cm]{OGL_light/meshSmoothSurfaces.png}
+\end{figure}
+
