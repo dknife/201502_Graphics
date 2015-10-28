@@ -46,9 +46,9 @@ void LightPosition(void) {
 		float r = 7;
 		static float angle = 0.0;
 		lightPos[0] = r * cos(angle);
-		lightPos[1] = 0.0;
+		lightPos[1] = 2.0;
 		lightPos[2] = r * sin(angle);
-		lightPos[3] = bPointLight?1.0:0.0;
+		lightPos[3] = bPointLight ? 1.0 : 0.0;
 		angle += 0.05;
 	}
 	if (bSpotLight) {
@@ -80,15 +80,15 @@ void drawAxes() {
 
 
 
-void drawSpheres(void) {
-	for (int x = -5; x <= 5; x++) {
-		for (int y = -5; y <= 5; y++) {
-			glPushMatrix();
-			glTranslatef(x, y, 0);
-			glutSolidSphere(0.5, 100, 100);
-			glPopMatrix();
-		}
-	}
+void drawTriangle(void) {
+	glBegin(GL_TRIANGLES);
+	glNormal3f(0, 1, 0);
+	glVertex3f(-5, 0, 5);
+	glNormal3f(1, 1, 0);
+	glVertex3f(5, 0, 5);
+	glNormal3f(0, 1, 1);
+	glVertex3f(0, 0, -5);
+	glEnd();
 }
 
 void myDisplay() {
@@ -96,7 +96,8 @@ void myDisplay() {
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	
+	gluLookAt(0, 5, 15, 0, 0, 0, 0, 1, 0);
+
 	LightPosition();
 
 	glDisable(GL_LIGHTING);
@@ -110,7 +111,7 @@ void myDisplay() {
 	glPopMatrix();
 
 	glEnable(GL_LIGHTING);
-	drawSpheres();
+	drawTriangle();
 
 
 	glutSwapBuffers();
@@ -121,7 +122,8 @@ void myDisplay() {
 void setCamera(void) {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(-8*aspRatio, 8*aspRatio, -8, 8, -10, 10);
+	gluPerspective(60, aspRatio, 0.1, 100.0);
+
 	glutPostRedisplay();
 }
 
