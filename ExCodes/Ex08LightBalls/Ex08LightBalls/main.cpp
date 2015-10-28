@@ -12,15 +12,19 @@
 
 
 float aspRatio = 1.0;
+bool bLightRotate = true;
+bool bPointLight = true;
+bool bSpotLight = false;
 
 
 GLfloat matSpec[] = { 1.0, 1.0, 1.0, 1.0 };
 GLfloat matDiff[] = { 1.0, 1.0, 0.0, 1.0 };
-GLfloat matAmbi[] = { 0.5, 0.1, 0.1, 1.0 };
+GLfloat matAmbi[] = { 0.0, 0.0, 0.0, 1.0 };
 GLfloat matShin[] = { 127.0 };
 
 GLfloat light[] = { 1.0, 1.0, 1.0, 1.0 };
 GLfloat lightPos[] = { -1.0, 1.0, 1.0, 1.0 };
+GLfloat dir[] = { 0, 0, 0 };
 
 void LightSet(void) {
 	glMaterialfv(GL_FRONT, GL_SPECULAR, matSpec);
@@ -38,12 +42,22 @@ void LightSet(void) {
 
 void LightPosition(void) {
 	// change light position
-	float r = 5;
-	static float angle = 0.0;
-	lightPos[0] = r * cos(angle);
-	lightPos[1] = 0.0;
-	lightPos[2] = r * sin(angle);
-	angle += 0.05;
+	if (bLightRotate) {
+		float r = 7;
+		static float angle = 0.0;
+		lightPos[0] = r * cos(angle);
+		lightPos[1] = 0.0;
+		lightPos[2] = r * sin(angle);
+		lightPos[3] = bPointLight?1.0:0.0;
+		angle += 0.05;
+	}
+	if (bSpotLight) {
+		dir[0] = -lightPos[0];
+		dir[1] = -lightPos[1];
+		dir[2] = -lightPos[2];
+		glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 20.0);
+		glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, dir);
+	}
 	glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
 }
 
@@ -68,7 +82,7 @@ void drawSpheres(void) {
 		for (int y = -5; y <= 5; y++) {
 			glPushMatrix();
 			glTranslatef(x, y, 0);
-			glutSolidSphere(0.5, 30, 30);
+			glutSolidSphere(0.5, 100, 100);
 			glPopMatrix();
 		}
 	}
@@ -118,6 +132,9 @@ void reshape(int w, int h) {
 void keyboard(unsigned char k, int x, int y) {
 	switch (k) {
 	case 27: exit(0);
+	case 'r': bLightRotate = bLightRotate ? false : true; break;
+	case 'p': bPointLight = bPointLight ? false : true; break;
+	case 's': bSpotLight = bSpotLight ? false : true; break;
 	}
 	setCamera();
 
