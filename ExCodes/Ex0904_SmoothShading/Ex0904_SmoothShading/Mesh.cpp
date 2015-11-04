@@ -84,7 +84,9 @@ void CMesh::drawMesh() {
 		int v2 = f[i].v2;
 		glNormal3f(n[v0].x, n[v0].y, n[v0].z);
 		glVertex3f(v[v0].x, v[v0].y, v[v0].z);
+		glNormal3f(n[v1].x, n[v1].y, n[v1].z);
 		glVertex3f(v[v1].x, v[v1].y, v[v1].z);
+		glNormal3f(n[v2].x, n[v2].y, n[v2].z);
 		glVertex3f(v[v2].x, v[v2].y, v[v2].z);
 		
 	}

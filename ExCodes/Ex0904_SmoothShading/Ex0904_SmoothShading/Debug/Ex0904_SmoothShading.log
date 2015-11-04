@@ -1,0 +1,17 @@
+﻿빌드 시작: 2015-11-04 오후 12:38:20
+     1>2 노드의 "C:\ymkang2015Graphics\201502_Graphics\ExCodes\Ex0904_SmoothShading\Ex0904_SmoothShading\Ex0904_SmoothShading.vcxproj" 프로젝트(Build 대상)입니다.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp Mesh.cpp
+         Mesh.cpp
+         main.cpp
+     1>c:\ymkang2015graphics\201502_graphics\excodes\ex0904_smoothshading\ex0904_smoothshading\main.cpp(51): warning C4305: '+=' : 'double'에서 'float'(으)로 잘립니다.
+         코드를 생성하고 있습니다...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\ymkang2015Graphics\201502_Graphics\ExCodes\Ex0904_SmoothShading\Debug\Ex0904_SmoothShading.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\ymkang2015Graphics\201502_Graphics\ExCodes\Ex0904_SmoothShading\Debug\Ex0904_SmoothShading.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\ymkang2015Graphics\201502_Graphics\ExCodes\Ex0904_SmoothShading\Debug\Ex0904_SmoothShading.lib" /MACHINE:X86 Debug\main.obj
+         Debug\Mesh.obj
+         Ex0904_SmoothShading.vcxproj -> C:\ymkang2015Graphics\201502_Graphics\ExCodes\Ex0904_SmoothShading\Debug\Ex0904_SmoothShading.exe
+     1>"C:\ymkang2015Graphics\201502_Graphics\ExCodes\Ex0904_SmoothShading\Ex0904_SmoothShading\Ex0904_SmoothShading.vcxproj" 프로젝트를 빌드했습니다(Build 대상).
+
+빌드했습니다.
+
+경과 시간: 00:00:03.46
