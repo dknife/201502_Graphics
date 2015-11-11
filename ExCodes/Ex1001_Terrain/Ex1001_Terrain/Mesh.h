@@ -18,8 +18,10 @@ public:
 };
 
 class CMesh {
+	
 	int nV;
 	int nF;
+	
 	cvertex *v;
 	cvertex *n;
 	cface   *f;
@@ -31,6 +33,7 @@ public:
 	~CMesh() { if (v) delete[] v; if (f) delete[] f; }
 
 	void loadMesh(const char *fname);
+	void createTerrain(int row, int col, float x, float z, float w, float h);
 	void drawMesh();
 };
 
