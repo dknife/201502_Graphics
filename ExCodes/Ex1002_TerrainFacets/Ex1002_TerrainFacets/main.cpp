@@ -42,12 +42,11 @@ void LightPosition(void) {
 	// change light position
 	
 	static float angle = 0.0;
-	lightPos[0] = 1;
+	lightPos[0] = cos(angle);
 	lightPos[1] = 1;
-	lightPos[2] = 0;
+	lightPos[2] = sin(angle);
 	lightPos[3] = 0.0;
-	if (lightPos[2] < 0) lightPos[2] *= -1.0;
-	//angle += 0.05;
+	angle += 0.05;
 	
 	glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
 	
