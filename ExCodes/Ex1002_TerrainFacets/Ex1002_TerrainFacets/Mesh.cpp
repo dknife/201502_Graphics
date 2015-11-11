@@ -116,7 +116,12 @@ void CMesh::computeNormals(void) { // private method
 
 void CMesh::drawMesh() {
 
-
+	static float a = 0.0;
+	a += 0.01;
+	for (int i = 0; i < nV; i++) {
+		v[i].y = sin(sin(a)*v[i].x*3.0)*cos(v[i].z*2.0*cos(a));
+	}
+	computeNormals();
 	glBegin(GL_TRIANGLES);
 	for (int i = 0; i < nF; i++) {		
 		int v0 = f[i].v0;
