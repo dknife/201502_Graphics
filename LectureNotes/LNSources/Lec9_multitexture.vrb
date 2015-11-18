@@ -1,0 +1,23 @@
+\frametitle{텍스처 애니메이션}
+
+\lstset{language=C++}
+\begin{lstlisting}
+glActiveTexture(GL_TEXTURE0);
+glMatrixMode(GL_TEXTURE);
+glLoadIdentity();
+glScalef(1.0+sin(t)*0.1, 1.0+sin(t)*0.1, 1.0);
+
+glActiveTexture(GL_TEXTURE1);
+glMatrixMode(GL_TEXTURE);
+glLoadIdentity();
+glTranslatef(t,0,0);
+glScalef(5.0, 5.0, 1.0);
+glEnd();
+\end{lstlisting}
+
+\begin{figure}[h!]
+    \centering
+\includegraphics[height=4cm]{OGL_texture/multiTexAni_A.png}
+\includegraphics[height=4cm]{OGL_texture/multiTexAni_B.png}
+\end{figure}
+

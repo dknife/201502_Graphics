@@ -1,0 +1,9 @@
+\frametitle{텍스처 좌표 자동생성 비교}
+
+\begin{figure}[h!]
+  \centering
+\begin{tabular}{c}
+\includegraphics[width=9cm]{OGL_texture/mappingComparison2.png}
+\end{tabular}
+\end{figure}
+
