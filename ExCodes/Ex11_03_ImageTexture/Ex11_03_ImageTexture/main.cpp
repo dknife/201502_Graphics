@@ -30,7 +30,7 @@ unsigned char *image;
 
 void LoadTexture(void) {
 	int width, height, bPerPix;
-	image = stbi_load("turningmechard.jpg", &width, &height, &bPerPix, 0);
+	image = stbi_load("cosmos.jpg", &width, &height, &bPerPix, 0);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB,
 		GL_UNSIGNED_BYTE, image);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
