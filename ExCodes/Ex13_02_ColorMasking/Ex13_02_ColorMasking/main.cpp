@@ -76,13 +76,13 @@ void myDisplay() {
 	glPopMatrix();
 
 	
-	//glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
-	//glutSolidTeapot(0.5);
-	//glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
-	//glDepthFunc(GL_EQUAL);
+	glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
+	glutSolidTeapot(0.5);
+	glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+	glDepthFunc(GL_EQUAL);
 	glColor4f(0, 0, 1, 0.5);
 	glutSolidTeapot(0.5);
-	//glDepthFunc(GL_LESS);
+	glDepthFunc(GL_LESS);
 
 
 	glutSwapBuffers();
